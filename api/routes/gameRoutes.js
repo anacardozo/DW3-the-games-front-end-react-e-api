@@ -5,18 +5,18 @@ import gameController from "../controllers/gameController.js";
 import Auth from '../middleware/Auth.js'
 
 // Endpoint para listar todos os games (rota)
-gameRoutes.get("/games", gameController.getAllGames);
+gameRoutes.get("/games", Auth.Authorization ,gameController.getAllGames);
 
 // Endpoint para cadastrar um jogo
-gameRoutes.post("/games", gameController.createGame);
+gameRoutes.post("/games", Auth.Authorization, gameController.createGame);
 
 // Endpoint para excluir um jogo
-gameRoutes.delete("/games/:id", gameController.deleteGame);
+gameRoutes.delete("/games/:id", Auth.Authorization, gameController.deleteGame);
 
 // Endpoint para alterar um jogo
-gameRoutes.put("/games/:id", gameController.updateGame)
+gameRoutes.put("/games/:id", Auth.Authorization, gameController.updateGame)
 
 // Endpoint para listar um único jogo
-gameRoutes.get("/games/:id", gameController.getOneGame)
+gameRoutes.get("/games/:id", Auth.Authorization, gameController.getOneGame)
 
 export default gameRoutes;
