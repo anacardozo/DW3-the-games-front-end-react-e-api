@@ -33,3 +33,11 @@ export const login = async (email, password) => {
         // se der erro vai retornar um objeto
     }
 }
+
+// Função que realiza o logout
+// recebendo o router de forma externa
+export const logout = (router) => {
+    localStorage.removeItem("token");
+    // usando o router que foi chamado
+    router.push("/")
+}

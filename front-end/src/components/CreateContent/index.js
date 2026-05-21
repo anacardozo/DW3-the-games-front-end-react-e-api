@@ -1,6 +1,7 @@
 import styles from "@/components/CreateContent/CreateContent.module.css";
 import { useState } from "react";
 import {useRouter} from "next/router";
+import { getAxiosConfig } from "@/services/authService";
 import axios from "axios";
 
 const CreateContent = () => {
@@ -36,7 +37,7 @@ const CreateContent = () => {
 
         // cadastrando a API
         // o game no final é o json que a API vai receber para cadastrar o jogo
-        const response = await axios.post("http://localhost:4000/games", game)
+        const response = await axios.post("http://localhost:4000/games", game, getAxiosConfig())
         // verificando o retorno da API
         if (response.status === 201){
           alert("Jogo cadastrado com sucesso!")

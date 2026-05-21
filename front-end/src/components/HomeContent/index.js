@@ -43,7 +43,7 @@ const HomeContent = () => {
   // pega o id para conseguir saber qual jogo tem que ser deletado
   const deleteGame = async(gameId) => {
     try{
-      const response = await axios.delete(`http://localhost:4000/games/${gameId}`); // -> ta pegando a variavel que tem o id e colocando no endpoint
+      const response = await axios.delete(`http://localhost:4000/games/${gameId}`, getAxiosConfig()); // -> ta pegando a variavel que tem o id e colocando no endpoint
       if(response.status === 204) // se retornar 204 significa que o jogo foi excluído com sucesso
         alert("O Jogo foi excluído com sucesso!")
         // Atualizando o estado removendo o jogo excluído
